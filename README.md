@@ -23,7 +23,7 @@
 |강현룡|[stundrg](https://github.com/stundrg)|
 |전희진|[heejoin131](https://github.com/heejin131)|
 |서민혁|[wminhyuck](https://github.com/wminhyuk)|
-|안재영|[Jaob-53](https://github.com/Jacob-53)|
+|안재영|[Jacob-53](https://github.com/Jacob-53)|
 
 <br>
 
