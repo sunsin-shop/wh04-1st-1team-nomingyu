@@ -1,11 +1,7 @@
 # 취업 지원 서비스
 
 import streamlit as st
-import pandas as pd
-import time
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
+
 
 # Streamlit 설정
 st.set_page_config(page_title="원티드 채용 공고 크롤러", layout="wide")
