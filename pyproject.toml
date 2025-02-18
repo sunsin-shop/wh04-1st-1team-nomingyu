@@ -5,7 +5,7 @@ description = "Default template for PDM package"
 authors = [
     {name = "vhzkclq0705", email = "vhzkclq0705@naver.com"},
 ]
-dependencies = ["streamlit>=1.42.1", "pandas>=2.2.3", "matplotlib>=3.10.0"]
+dependencies = ["streamlit>=1.42.1", "pandas>=2.2.3", "matplotlib>=3.10.0", "webdriver-manager>=4.0.2"]
 requires-python = ">=3.10"
 readme = "README.md"
 license = {text = "MIT"}
