@@ -92,3 +92,17 @@ $ git commit -a
 # 원격 저장소로 푸시
 $ git push
 ```
+
+<br>
+
+## **Local Test (로컬 환경 테스트)**
+```bash
+# merge된 브랜치로 이동
+$ git checkout <브랜치명> # ex) 0.1/develop
+
+# 브랜치 내용 가져오기
+$ git pull origin <브랜치명> # ex) 0.1/develop
+
+# 로컬 환경 실행
+$ streamlit run Main.py
+```
