@@ -12,17 +12,20 @@ ott_choice = st.selectbox("구독 중인 OTT 플랫폼을 선택하세요", ott_
 
 # 결제일 및 금액 입력
 payment_date = st.date_input("최초 결제일을 선택하세요", date.today())
-subscription_fee = st.number_input("월 구독료 (₩)", min_value=0, step=100)
+subscription_fee = st.number_input("월 구독료 (₩)", min_value=1000, step=100)
 
 # 저장 
 
 if "subscriptions" not in st.session_state:
     st.session_state["subscriptions"] = pd.DataFrame(columns=["OTT", "결제일", "구독료"])
 
-if st.button("구독 추가"):
-    new_data = pd.DataFrame([[ott_choice, payment_date, subscription_fee, payment_date.day]], columns=["OTT", "최초 결제일", "구독료", "결제일"])
-    st.session_state["subscriptions"] = pd.concat([st.session_state["subscriptions"], new_data], ignore_index=True)
-    st.success(f"매월 {ott_choice}에  {payment_date.day}일  {subscription_fee:,}원이 결제됩니다.")
+if st.button("구독 추가"):  
+    if ott_choice in st.session_state["subscriptions"]["OTT"].unique():
+        st.error(f"{ott_choice}는 이미 등록된 구독입니다.")
+    else:
+        new_data = pd.DataFrame([[ott_choice, payment_date, subscription_fee, payment_date.day]], columns=["OTT", "최초 결제일", "구독료", "월별 자동결제일"])
+        st.session_state["subscriptions"] = pd.concat([st.session_state["subscriptions"], new_data], ignore_index=True)
+        st.success(f"매월 {ott_choice}에  {payment_date.day}일  {subscription_fee:,}원이 결제됩니다.")
 
 if not st.session_state["subscriptions"].empty:
     st.subheader("📊 내 구독 현황")
@@ -34,3 +37,4 @@ if not st.session_state["subscriptions"].empty:
 
     # 구독료 시각화
     st.bar_chart(st.session_state["subscriptions"].set_index("OTT")["구독료"])
+    
