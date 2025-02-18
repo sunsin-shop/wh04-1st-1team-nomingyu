@@ -21,7 +21,7 @@
 |---|---|
 |권오준|[vhzkclq0705](https://github.com/vhzkclq0705)|
 |강현룡|[stundrg](https://github.com/stundrg)|
-|전희진|[heejoin131](https://github.com/heejin131)|
+|전희진|[heejin131](https://github.com/heejin131)|
 |서민혁|[wminhyuck](https://github.com/wminhyuk)|
 |안재영|[Jacob-53](https://github.com/Jacob-53)|
 
