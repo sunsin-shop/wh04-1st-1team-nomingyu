@@ -17,7 +17,7 @@ subscription_fee = st.number_input("월 구독료 (₩)", min_value=1000, step=1
 # 저장 
 
 if "subscriptions" not in st.session_state:
-    st.session_state["subscriptions"] = pd.DataFrame(columns=["OTT", "결제일", "구독료"])
+    st.session_state["subscriptions"] = pd.DataFrame(columns=["OTT", "최초 결제일", "구독료", "월별 자동결제일"])
 
 if st.button("구독 추가"):  
     if ott_choice in st.session_state["subscriptions"]["OTT"].unique():
@@ -25,7 +25,7 @@ if st.button("구독 추가"):
     else:
         new_data = pd.DataFrame([[ott_choice, payment_date, subscription_fee, payment_date.day]], columns=["OTT", "최초 결제일", "구독료", "월별 자동결제일"])
         st.session_state["subscriptions"] = pd.concat([st.session_state["subscriptions"], new_data], ignore_index=True)
-        st.success(f"매월 {ott_choice}에  {payment_date.day}일  {subscription_fee:,}원이 결제됩니다.")
+        st.success(f"매월 {payment_date.day}일에  {ott_choice}  구독비  {subscription_fee:,}원이 결제됩니다.")
 
 if not st.session_state["subscriptions"].empty:
     st.subheader("📊 내 구독 현황")
