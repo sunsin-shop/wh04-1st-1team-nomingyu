@@ -5,7 +5,7 @@
 groups = ["default", "eda", "test"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:df1676cf66b24db1d9e6220de7cd7b5265ea8344858b1b117d6dea17d1331790"
+content_hash = "sha256:302e7646b528b1f1c0dd1de83d0bed0cad1f8b62c32b6e73822d6fcc11396848"
 
 [[metadata.targets]]
 requires_python = ">=3.10"
@@ -214,6 +214,20 @@ groups = ["default"]
 files = [
     {file = "blinker-1.9.0-py3-none-any.whl", hash = "sha256:ba0efaa9080b619ff2f3459d1d500c57bddea4a6b424b60a91141db6fd2f08bc"},
     {file = "blinker-1.9.0.tar.gz", hash = "sha256:b4ce2265a7abece45e7cc896e98dbebe6cead56bcf805a3d23136d145f5445bf"},
+]
+
+[[package]]
+name = "branca"
+version = "0.8.1"
+requires_python = ">=3.7"
+summary = "Generate complex HTML+JS pages with Python"
+groups = ["default"]
+dependencies = [
+    "jinja2>=3",
+]
+files = [
+    {file = "branca-0.8.1-py3-none-any.whl", hash = "sha256:d29c5fab31f7c21a92e34bf3f854234e29fecdcf5d2df306b616f20d816be425"},
+    {file = "branca-0.8.1.tar.gz", hash = "sha256:ac397c2d79bd13af0d04193b26d5ed17031d27609a7f1fab50c438b8ae712390"},
 ]
 
 [[package]]
@@ -558,6 +572,24 @@ groups = ["eda"]
 files = [
     {file = "fastjsonschema-2.21.1-py3-none-any.whl", hash = "sha256:c9e5b7e908310918cf494a434eeb31384dd84a98b57a30bcb1f535015b554667"},
     {file = "fastjsonschema-2.21.1.tar.gz", hash = "sha256:794d4f0a58f848961ba16af7b9c85a3e88cd360df008c59aac6fc5ae9323b5d4"},
+]
+
+[[package]]
+name = "folium"
+version = "0.19.4"
+requires_python = ">=3.9"
+summary = "Make beautiful maps with Leaflet.js & Python"
+groups = ["default"]
+dependencies = [
+    "branca>=0.6.0",
+    "jinja2>=2.9",
+    "numpy",
+    "requests",
+    "xyzservices",
+]
+files = [
+    {file = "folium-0.19.4-py2.py3-none-any.whl", hash = "sha256:bea5246b6a6aa61b96d1c51399dd63254bacbd6ba8a826eeb491f45242032dfd"},
+    {file = "folium-0.19.4.tar.gz", hash = "sha256:431a655b52a9bf3efda336f2be022103f0106504a0599e7c349efbfd30bafda6"},
 ]
 
 [[package]]
@@ -2357,6 +2389,23 @@ files = [
 ]
 
 [[package]]
+name = "streamlit-folium"
+version = "0.24.0"
+requires_python = ">=3.9"
+summary = "Render Folium objects in Streamlit"
+groups = ["default"]
+dependencies = [
+    "branca",
+    "folium!=0.15.0,>=0.13",
+    "jinja2",
+    "streamlit>=1.35.0",
+]
+files = [
+    {file = "streamlit_folium-0.24.0-py3-none-any.whl", hash = "sha256:e7b1d30c5a5db018442a459644d085a397754da8c32047999e83f6bdf434345d"},
+    {file = "streamlit_folium-0.24.0.tar.gz", hash = "sha256:f59238feb8e4c1ec0cc54f19fc45d1ee198a8ca55f025bc0b906f48eb7fa5c10"},
+]
+
+[[package]]
 name = "tenacity"
 version = "9.0.0"
 requires_python = ">=3.8"
@@ -2630,4 +2679,15 @@ groups = ["eda"]
 files = [
     {file = "websocket_client-1.8.0-py3-none-any.whl", hash = "sha256:17b44cc997f5c498e809b22cdf2d9c7a9e71c02c8cc2b6c56e7c2d1239bfa526"},
     {file = "websocket_client-1.8.0.tar.gz", hash = "sha256:3239df9f44da632f96012472805d40a23281a991027ce11d2f45a6f24ac4c3da"},
+]
+
+[[package]]
+name = "xyzservices"
+version = "2025.1.0"
+requires_python = ">=3.8"
+summary = "Source of XYZ tiles providers"
+groups = ["default"]
+files = [
+    {file = "xyzservices-2025.1.0-py3-none-any.whl", hash = "sha256:fa599956c5ab32dad1689960b3bb08fdcdbe0252cc82d84fc60ae415dc648907"},
+    {file = "xyzservices-2025.1.0.tar.gz", hash = "sha256:5cdbb0907c20be1be066c6e2dc69c645842d1113a4e83e642065604a21f254ba"},
 ]
