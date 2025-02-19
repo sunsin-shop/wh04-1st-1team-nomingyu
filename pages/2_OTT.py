@@ -37,21 +37,21 @@ if not st.session_state["subscriptions"].empty:
     # 구독료 시각화
     st.bar_chart(st.session_state["subscriptions"].set_index("OTT")["구독료"])
 
-## 메인 캘린더에 저장
+# 메인 캘린더에 저장
     if st.button("📆 캘린더 반영"):
         if st.session_state["subscriptions"].empty:
             st.error(f"등록한 구독 서비스가 없습니다. [구독추가]를 선행해주세요.")
         else:
             cnt=st.session_state["subscriptions"]["OTT"].count()
-            st.success(f"총 {cnt}건이 구독 현황이 캘린더에 반영되었습니다. Main페이지에서 확인해주세요.")
+            st.success(f"총 {cnt}건의 구독 현황이 캘린더에 반영되었습니다. Main페이지에서 확인해주세요.")
 
 # 알림받기
-if st.button("🔔결제일 알림받기"):
-    if st.session_state["subscriptions"].empty:
-        st.error(f"등록한 구독 서비스가 없습니다. [구독추가]를 선행해주세요.")
-    else:
-        try:
-            for _, row in st.session_state["subscriptions"].iterrows():
-                st.success(f"매월 {row['월별 자동결제일']}일에 {row['OTT']} 결제 알림이 발송됩니다.")
-        except Exception as e:
-            st.error(f"알림을 생성하는 중 오류가 발생했습니다: {e}")
+    if st.button("🔔결제일 알림받기"):
+        if st.session_state["subscriptions"].empty:
+            st.error(f"등록한 구독 서비스가 없습니다. [구독추가]를 선행해주세요.")
+        else:
+            try:
+                for _, row in st.session_state["subscriptions"].iterrows():
+                    st.success(f"매월 {row['월별 자동결제일']}일에 {row['OTT']} 결제 알림이 발송됩니다.")
+            except Exception as e:
+                st.error(f"알림을 생성하는 중 오류가 발생했습니다: {e}")
