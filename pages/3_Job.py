@@ -8,6 +8,7 @@ st.set_page_config(page_title="취업 지원 서비스", layout="centered")
 st.title("🚀 취업 지원 서비스")
 st.write("빠르게 원하는 채용 공고를 검색하고 필터링하세요.")
 
+
 # ✅ 🔹 직군별 URL 및 이미지 매핑 (공고 이동 URL 포함)
 job_data = {
     "백엔드 개발": {
@@ -30,6 +31,7 @@ job_data = {
 
 # ✅ 직군 선택 (이미지 + URL 이동 포함)
 st.subheader("🔍 채용 공고 검색 및 필터링")
+
 
 # ✅ 직군 선택 박스
 job_category = st.selectbox("💼 직군을 선택하세요:", list(job_data.keys()))
