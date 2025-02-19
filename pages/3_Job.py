@@ -8,7 +8,8 @@ st.set_page_config(page_title="취업 지원 서비스", layout="centered")
 st.title("🚀 취업 지원 서비스")
 st.write("빠르게 원하는 채용 공고를 검색하고 필터링하세요.")
 
-# ✅ 🔹 직군별 URL 및 이미지 매핑 (공고 이동 URL 추가)
+
+# ✅ 🔹 직군별 URL 및 이미지 매핑 (공고 이동 URL 포함)
 job_data = {
     "백엔드 개발": {
         "image": "https://github.com/user-attachments/assets/1929d3c5-8e87-4c40-bec6-c62f2cfcd627",
@@ -31,25 +32,22 @@ job_data = {
 # ✅ 직군 선택 (이미지 + URL 이동 포함)
 st.subheader("🔍 채용 공고 검색 및 필터링")
 
-col1, col2 = st.columns([2, 1])
-with col1:
-    job_category = st.selectbox("💼 직군을 선택하세요:", list(job_data.keys()))
 
-with col2:
-    st.image(job_data[job_category]["image"], width=750)
+# ✅ 직군 선택 박스
+job_category = st.selectbox("💼 직군을 선택하세요:", list(job_data.keys()))
 
-# ✅ 검색 버튼 (채용 공고 이동 URL 추가)
-if st.button(f"📢 {job_category} 원티드 채용 검색"):
+# ✅ 직군 선택 후 이미지 표시 (줄바꿈 없이 정렬)
+st.image(job_data[job_category]["image"], width=750)
+
+# ✅ 검색 버튼 (채용 공고 이동 URL 포함)
+if st.button(f"📢 {job_category} 채용 검색"):
     st.markdown(f"🔗 [{job_category} 채용 공고 보기]({job_data[job_category]['url']})", unsafe_allow_html=True)
 
-# ✅ 🔹 필터링 UI (직군 선택 아래로 정리)
-col1, col2, col3 = st.columns(3)
-with col1:
-    selected_role = st.multiselect("🎓 직무 선택", ["백엔드", "프론트엔드", "데이터 엔지니어", "디자인"], default=["백엔드"])
-with col2:
-    selected_location = st.multiselect("📍 지역 선택", ["서울", "경기", "부산"], default=["서울"])
-with col3:
-    selected_experience = st.multiselect("💼 경력 선택", ["신입", "경력"], default=["신입"])
+# ✅ 🔹 필터링 UI (직군 선택 아래 정리)
+st.subheader("🎯 채용 공고 필터링")
+selected_role = st.multiselect("🎓 직무 선택", ["백엔드", "프론트엔드", "데이터 엔지니어", "디자인"], default=["백엔드"])
+selected_location = st.multiselect("📍 지역 선택", ["서울", "경기", "부산"], default=["서울"])
+selected_experience = st.multiselect("💼 경력 선택", ["신입", "경력"], default=["신입"])
 
 # ✅ 샘플 데이터
 data = {
@@ -61,7 +59,7 @@ data = {
         "https://samsung.com",
         "https://kakao.com",
         "https://naver.com",
-        "https://line.com",
+        "https://www.line.me/ko/",
         "https://coupang.com"
     ]
 }
