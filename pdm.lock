@@ -5,10 +5,10 @@
 groups = ["default", "eda", "test"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:677f90d04968084c750c14d99bafa285d3331b4bed3f134a2de7a299517c1dcf"
+content_hash = "sha256:4b7dcad736d37c4d6da833b7022035d0a1ecfed725d6e1e7420d97d549a24bba"
 
 [[metadata.targets]]
-requires_python = ">=3.10"
+requires_python = "~=3.10"
 
 [[package]]
 name = "altair"
