@@ -119,15 +119,28 @@ if st.button("즐겨찾기 추가"):
     st.session_state.favorite_destination = destination
     st.success(f"즐겨찾기가 저장되었습니다! 출발지: {departure}, 도착지: {destination}")
 
+# session_state에 'reroute' 플래그가 없으면 초기화
+if "reroute" not in st.session_state:
+    st.session_state.reroute = False
+
+
 # 도착 예정 시간
 
 with st.expander("경로 안내"):
+    # 환승 성공 확률이 90% 미만이면 경고 메시지와 "다시 안내" 버튼 출력 (expander 내부)
+    if transfer_success_rate < 90 and not st.session_state.reroute:
+        st.warning("환승 실패 위험이 높습니다. 원하신다면 좀 더 안전한 경로를 추천해드리겠습니다.")
+        if st.button("다시 안내"):
+            st.session_state.reroute = True
+    # 다시 안내 버튼이 눌렸다면, 표시할 환승 성공 확률은 100%로 변경
+    displayed_rate = 100 if st.session_state.reroute else transfer_success_rate
+                    
     st.markdown(
         f"""
         **총 소요 시간**: {estimated_time}        
         **이동 거리**: {distance:.2f}km  
         **환승**: 1회  
-        **환승 성공 확률**: {transfer_success_rate}%  
+        **환승 성공 확률**: {displayed_rate}%  
         **카드 요금**: 1,800원  
 
         1. **{departure}**  
@@ -139,6 +152,7 @@ with st.expander("경로 안내"):
         5. **{destination} 하차** 
         """
     )
+
 
 
 st.page_link("Main.py", label="Back to Main", icon="🏠")
