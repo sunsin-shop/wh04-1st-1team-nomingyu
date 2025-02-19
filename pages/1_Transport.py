@@ -33,6 +33,15 @@ places2 = {
     "인천공항": {"lat": 37.4602, "lon": 126.4407},
 }
 
+# --- 즐겨찾기 불러오기 버튼 (페이지 상단) ---
+if st.button("즐겨찾기 불러오기"):
+    if "favorite_departure" in st.session_state and "favorite_destination" in st.session_state:
+        fav_dep = st.session_state.favorite_departure
+        fav_dest = st.session_state.favorite_destination
+        st.success(f"즐겨찾기가 불러와졌습니다! 출발지: {fav_dep}, 도착지: {fav_dest}")
+    else:
+        st.warning("저장된 즐겨찾기가 없습니다!")
+
 # 출발지와 도착지 입력 탭 생성
 tab1, tab2 = st.tabs(["출발지", "도착지"])
 
@@ -48,6 +57,7 @@ dest = places2[destination]
 # 지도 중심 좌표 (두 지점의 중간값)
 center_lat = (dep["lat"] + dest["lat"]) / 2
 center_lon = (dep["lon"] + dest["lon"]) / 2
+
 # Folium 지도 객체 생성
 m = folium.Map(location=[center_lat, center_lon], zoom_start=10)
 
@@ -102,6 +112,12 @@ estimated_time = f"{hours}시간 {minutes}분"
 
 # 환승 성공 확률: 50~100% 사이의 난수 생성
 transfer_success_rate = random.randint(50, 100)
+
+# --- 즐겨찾기 추가 버튼 (페이지 하단) ---
+if st.button("즐겨찾기 추가"):
+    st.session_state.favorite_departure = departure
+    st.session_state.favorite_destination = destination
+    st.success(f"즐겨찾기가 저장되었습니다! 출발지: {departure}, 도착지: {destination}")
 
 # 도착 예정 시간
 
