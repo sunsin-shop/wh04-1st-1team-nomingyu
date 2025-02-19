@@ -15,6 +15,12 @@
 
 <br>
 
+## 요구사항 및 시나리오
+
+- [Docs](https://github.com/sunsin-shop/wh04-1st-1team-nomingyu/wiki)
+
+<br>
+
 ## **👥 Members**
 ### **민규 없는 민규팀**
 |이름|깃허브|
