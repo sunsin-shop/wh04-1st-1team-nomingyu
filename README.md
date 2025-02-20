@@ -1,5 +1,10 @@
 # 🚀 PlanMate
 
+**Team Name**: 민규없는 민규팀
+**Version**: 0.2.0v  
+**Web Link**:  [Smart Assistant](https://nomingyu.streamlit.app/) /
+ **Requirements and Scenarios**: [Wiki](https://github.com/sunsin-shop/wh04-1st-1team-nomingyu/wiki)
+ 
 > **PlanMate**는 개인 맞춤형 스케줄 관리 서비스입니다.  
 > OTT 구독 일정, 취업 일정, 신발 가격 추이, 교통 정보 등을 관리하고,  
 > 사용자 맞춤형 알림과 캘린더 기능을 제공합니다.
